@@ -1,0 +1,68 @@
+<?php
+session_start();
+// セッション変数 $_SESSION["loggedin"]を確認。ログイン済だったらウェルカムページへリダイレクト
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+?>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Horse care</title>
+    <link rel="stylesheet" type="text/css" href="CSS/styles.css">
+  </head>
+  <body>
+    <header>
+      <h1>Horse care</h1>
+      <nav>
+        <ul>
+          <li><a href="#">商品一覧</a></li>
+          <li><a href="#">カート</a></li>
+          <li><a href="#">みんなの投稿</a></li>
+          <li><a href="logout.php">ログアウト</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="featured">
+        <h2>おすすめ商品</h2>
+        <div class="product-list">
+          <div class="product">
+            <img src="img/product1.jpg" alt="商品1">
+            <div class="name">桜花賞写真集</div>
+            <div class="price">1000円</div>
+          </div>
+          <div class="product">
+            <img src="img/product2.jpg" alt="商品2">
+            <div class="name">京都記念写真集</div>
+            <div class="price">1000円</div>
+          </div>
+      </section>
+      <section id="new-arrivals">
+        <h2>支援一覧</h2>
+        <div class="product-list">
+          <div class="product">
+          <a href="#"><img src="product4.jpg" alt=""></a>
+          <p class="name">定期支援1</p>
+          <p class="price">4,000円（税込）</p>
+        </div>
+        <div class="product">
+          <a href="#"><img src="product5.jpg" alt=""></a>
+          <p class="name">定期支援2</p>
+          <p class="price">5,000円（税込）</p>
+        </div>
+        <div class="product">
+          <a href="#"><img src="product6.jpg" alt=""></a>
+          <p class="name">定期支援3</p>
+          <p class="price">6,000円（税込）</p>
+        </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; Horse care</p>
+    </footer>
+  </body>
+</html>
